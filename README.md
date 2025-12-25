@@ -1,36 +1,7 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+RiverFlow - Stack Overflow Clone (Backend & Logic)RiverFlow is a full-stack Q&A platform built with Next.js and Appwrite. This repository focuses on the robust backend architecture, database relationships, and type-safe data fetching logic required for a modern community platform.🚀 Technical StackFramework: Next.js (App Router)Backend as a Service (BaaS): Appwrite (Databases, Auth, Storage, and Avatars)Language: TypeScript (Strict Mode)Styling & UI Components: Tailwind CSS, Aceternity UI, and Magic UI🏗️ Backend Architecture & SchemaThe backend is structured around four primary collections in Appwrite to handle complex relational data:CollectionDescriptionKey RelationshipsQuestionsStores user-submitted problems, titles, and tags.Linked to AuthorId and AttachmentId.AnswersStores solutions to questions.Linked to QuestionId and AuthorId.VotesTracks upvotes/downvotes for both questions and answers.Linked to Type and TypeId.CommentsHandles threaded discussions on questions and answers.Linked to TypeId and AuthorId.🛠️ Key Features ImplementedRelational Data Mapping: Implemented complex Promise.all logic to merge Appwrite Documents with User data, calculating total votes and answers on the fly.Type-Safe Database Interacting: Defined custom TypeScript interfaces (e.g., QuestionDocument, AnswerDocument) to extend Appwrite's base models, ensuring full type safety across custom fields.Unified Voting System: A centralized API logic to handle upvoting and downvoting with real-time state updates.File Attachment Pipeline: Integrated Appwrite Storage for image uploads within questions, including automated cleanup of old files during updates.Rich Text Integration: Configured Markdown support for professional-grade technical writing.🔧 Getting StartedPrerequisitesNode.js 18+An Appwrite Cloud account or local instance.InstallationClone the repo:Bashgit clone https://github.com/your-username/riverflow-backend.git
+Install dependencies:Bashnpm install
+Environment Variables: Create a .env file and add your Appwrite credentials:Code snippetNEXT_PUBLIC_APPWRITE_ENDPOINT="https://cloud.appwrite.io/v1"
+NEXT_PUBLIC_APPWRITE_PROJECT_ID="your_project_id"
+APPWRITE_DATABASE_ID="your_db_id"
+# Add other Collection and Bucket IDs...
+📝 Troubleshooting Resolved IssuesNextRouter Error: Updated all navigation logic to use next/navigation for compatibility with the App Router.TypeScript Document Casting: Resolved "Property X does not exist on type Document" by implementing strict interfaces for custom schema fields.Module Pathing: Standardized @/ aliases and resolved component import conflicts.
